@@ -8,6 +8,7 @@ HW 07, Mar 19, 2023
 def file_copy(in_file, out_file):
 	with open(in_file, 'r') as inf:
 		with open(out_file, 'w') as outf:
+			print('\ncreated', out_file, '\n')
 			outf.write(inf.read())
 
 file_copy("HW07_PeterSaburov.py", "copiedFile.py")
@@ -17,12 +18,10 @@ file_copy("HW07_PeterSaburov.py", "copiedFile.py")
 def file_stats(in_file):
 	with open(in_file, 'r') as inf:
 		inf_text = inf.read()
-	stats = [0,0,0]
-	stats[0] = len(inf_text.split('\n'))
-	stats[1] = len(inf_text.split())
-	for c in inf_text:
-		stats[2] += 1
-	print(f"lines {stats[0]}\nwords {stats[1]}\ncharacters {stats[2]}")
+	lines = len(inf_text.split('\n'))
+	words = len(inf_text.split())
+	chars = len(inf_text)
+	print(f"lines {lines}\nwords {words}\ncharacters {chars}\n")
 
 file_stats("copiedFile.py")
 
@@ -35,6 +34,7 @@ def repeat_words(in_file, out_file):
 		inf_text = inf.read()
 	lines = inf_text.split('\n')
 	with open(out_file, 'w') as outf:
+		print('created', out_file, '\n')
 		for line in lines:
 			words = line.split()
 			rep_words = []
